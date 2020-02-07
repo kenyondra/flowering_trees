@@ -1,13 +1,25 @@
-require "flowering_trees/version"
+#require "flowering_trees/version"
 
 #module FloweringTrees
   class FloweringTrees::CLI
     
    def start 
     puts "Welcome to Willis Orchards' Company, the best place to make your yard look great!"
-    
     puts 
-    #puts "Here you can find the best flowering trees #{trees}"
+    FloweringTrees::Scraper.scrape 
+    puts "Select a flowering tree of your interest!"
+    puts
+    trees 
+    command
+  end
+  
+  def trees 
+    arr = FloweringTrees::Trees.all.uniq { |tree| tree.name }
+    arr.each.with_index(1) do |object, index|
+      puts "#{index}, #{object.name}"
+    end
+    
+    
     
     DirtyBirds::Scraper.scrape 
     puts "Please enter your favorite players' uniform number!"
