@@ -1,7 +1,4 @@
-require 'pry'
-require 'nokogiri'
-
-class FloweringTrees::Trees 
+class FloweringTrees::FloweringTrees 
   
   attr_accessor :name, :url, :price 
   

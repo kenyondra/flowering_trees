@@ -1,6 +1,4 @@
-#require "flowering_trees/version"
-
-#module FloweringTrees
+module FloweringTrees
   class FloweringTrees::CLI
     
    def start 
