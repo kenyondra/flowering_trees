@@ -7,7 +7,7 @@ class FloweringTrees::Scraper
   BASEURL = "https://www.willisorchards.com/category/flowering-trees"
   
 
-  def self.scrape
+  def run 
     page = Nokogiri::HTML(open("https://www.willisorchards.com/category/flowering-trees#.Xj7pAGhKg2w"))
     list = page.css("div.child-link")
     
