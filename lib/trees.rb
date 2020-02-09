@@ -1,4 +1,4 @@
-class FloweringTrees::FloweringTrees 
+class FloweringTrees::Trees 
   
   attr_accessor :name, :url, :price 
   

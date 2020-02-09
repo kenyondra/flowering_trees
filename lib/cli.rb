@@ -1,7 +1,6 @@
-module FloweringTrees
   class FloweringTrees::CLI
     
-   def start 
+   def run 
     puts "Welcome to Willis Orchards' Company, the best place to make your yard look great!"
     puts 
     FloweringTrees::Scraper.scrape 
