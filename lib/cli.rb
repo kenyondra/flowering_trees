@@ -1,21 +1,31 @@
 class FloweringTrees::CLI
     
    def run 
-    puts "Welcome to Willis Orchards', the best place to make your yard look great!"
-    puts ""
-    #FloweringTrees::Scraper.scrape 
-    puts "To see the list of flowering trees, enter 'trees'"
-    puts "To view a specific tree, enter 'name'"
-    puts "To search trees by price, enter 'price'"
-    trees 
-    #command
-  end
+     list_trees
+     greeting
+     user_command
+   end
+   
+   def list_trees
+     trees_array = FloweringTrees::Scraper.scrape_page
+     Trees.create_from_collection(trees_array)
+   end
+   
+   def greeting
+     puts ""
+     puts "Welcome to Willis Orchards', the best place to make your yard look great!"
+     puts ""
+     #FloweringTrees::Scraper.scrape 
+     puts "To see the list of flowering trees, enter 'trees'"
+     puts "To view a specific tree, enter 'name'"
+     puts "To search trees by price, enter 'price'"
+   end
+
+  #def list_trees 
+   # Trees.all.each 
+    #  puts "#{object.name}"
+    #end
   
-  def trees 
-    arr = FloweringTrees::Trees.all.uniq { |tree| tree.name }
-    arr.each.with_index(1) do |object, index|
-      puts "#{index}, #{object.name}"
-    end
     
     
     
@@ -69,4 +79,4 @@ class FloweringTrees::CLI
    # puts "Hope to see you cheering at the next game!"
     #exit
   end 
-end    
+    
