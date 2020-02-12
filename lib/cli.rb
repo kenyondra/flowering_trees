@@ -11,7 +11,7 @@ class FloweringTrees::CLI
      Trees.create_from_collection(trees_array)
    end
    
-   def greeting
+   def welcome 
      puts ""
      puts "Welcome to Willis Orchards', the best place to make your yard look great!"
      puts ""
@@ -19,6 +19,7 @@ class FloweringTrees::CLI
      puts "To see the list of flowering trees, enter 'trees'"
      puts "To view a specific tree, enter 'name'"
      puts "To search trees by price, enter 'price'"
+     puts "To exit the program, type 'exit'"
    end
 
   #def list_trees 
