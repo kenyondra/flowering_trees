@@ -1,6 +1,6 @@
-#require 'nokogiri'
-#require 'open-uri' 
-#require 'pry'
+require 'nokogiri'
+require 'open-uri' 
+require 'pry'
 
 class FloweringTrees::Scraper
   
@@ -13,12 +13,15 @@ class FloweringTrees::Scraper
     trees = []
     
     fl_trees = list.map do |trees|
-    url = trees.css("a").attr("href").value,
-    name = trees.css("a").text,
-    price = trees.css("p.strong").text
+      trees_hash = {
+    url => trees.css("a").attr("href").value,
+    name => trees.css("a").text,
+    price => trees.css("p.strong").text
+      }
+      end
+      
     full_url = BASEURL + url
     
     FloweringTrees::Trees.new(url, name, price)
+    end
   end
-end
-end
