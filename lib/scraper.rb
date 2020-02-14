@@ -10,6 +10,7 @@ class FloweringTrees::Scraper
   def self.scrape_page 
     page = Nokogiri::HTML(open("https://www.willisorchards.com/category/flowering-trees#.Xj-qV2hKg2w"))
     list = page.css("div.child-link")
+    trees = []
     
     fl_trees = list.map do |trees|
     url = trees.css("a").attr("href").value,
