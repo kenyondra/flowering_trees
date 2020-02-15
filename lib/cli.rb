@@ -22,6 +22,24 @@ class FloweringTrees::CLI
      puts "To exit the program, type 'exit'"
    end
 
+  def user_command
+    input = nil 
+    while input != "exit"
+      input = gets.chomp 
+      if input.downcase == "trees"
+        puts ""
+        display_trees
+        elsif input.downcase == "search by name"
+          list_trees_by_name
+        elsif input.downcase == "search by price"
+          list_trees_by_price
+        elsif input.downcase == "exit"
+          exit_app
+        else 
+          enter_correct_input 
+        end
+      end
+    end
   #def list_trees 
    # Trees.all.each 
     #  puts "#{object.name}"
