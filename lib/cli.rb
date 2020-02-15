@@ -72,3 +72,10 @@ class FloweringTrees::CLI
       end
     end
   end
+  
+  def enter_correct_input
+    puts ""
+    puts "Enter correct input"
+    puts ""
+  end
+  

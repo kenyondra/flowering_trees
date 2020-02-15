@@ -11,7 +11,7 @@ class FloweringTrees::Scraper
     page = Nokogiri::HTML(open("https://www.willisorchards.com/category/flowering-trees#.Xj-qV2hKg2w"))
     list = page.css("div.child-link")
     trees = []
-    
+    #binding.pry 
     fl_trees = list.map do |trees|
       tree_hash = {
     url => trees.css("a").attr("href").value,
@@ -25,5 +25,5 @@ class FloweringTrees::Scraper
     
     FloweringTrees::Trees.new(url, name, price)
     end
-    trees 
+    #trees 
   end
