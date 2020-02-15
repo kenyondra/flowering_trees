@@ -102,5 +102,4 @@ class FloweringTrees::CLI
   #end
    # puts "Hope to see you cheering at the next game!"
     #exit
-  end 
     
