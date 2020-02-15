@@ -40,8 +40,13 @@ class FloweringTrees::CLI
         end
       end
     end
-  #def list_trees 
-   # Trees.all.each 
+  end
+    
+  def exit_app
+    puts "Goodbye, see you next time!"
+    exit 
+  end 
+     
     #  puts "#{object.name}"
     #end
   
