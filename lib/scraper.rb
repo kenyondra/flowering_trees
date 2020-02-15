@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri' 
 require 'pry'
 
-class Scraper
+class FloweringTrees::Scraper
   
   BASEURL = "https://www.willisorchards.com/category/flowering-trees"
   
@@ -23,8 +23,7 @@ class Scraper
       
     full_url = BASEURL + url
     
-    #FloweringTrees::Trees.new(url, name, price)
+    FloweringTrees::Trees.new(url, name, price)
     end
     trees 
   end
-

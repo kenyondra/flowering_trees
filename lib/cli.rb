@@ -1,4 +1,4 @@
-class CLI
+class FloweringTrees::CLI
     
    def run 
      list_trees
@@ -7,7 +7,7 @@ class CLI
    end
    
    def list_trees
-     trees_array = Scraper.scrape_page
+     trees_array = FloweringTrees::Scraper.scrape_page
      Trees.create_from_collection(trees_array)
    end
    
@@ -28,6 +28,8 @@ class CLI
       input = gets.chomp 
       if input.downcase == "trees"
         puts ""
+        puts "To see tree info, type trees"
+        puts ""
         display_trees
         elsif input.downcase == "search by name"
           list_trees_by_name
@@ -45,6 +47,11 @@ class CLI
   def exit_app
     puts "Goodbye, see you next time!"
     exit 
+  end 
+  
+  def display_trees
+    Trees.all.each {|tree| puts "#{tree.name}"}
+    puts ""
   end 
      
   def list_trees_by_name
@@ -65,4 +72,3 @@ class CLI
       end
     end
   end
-    
