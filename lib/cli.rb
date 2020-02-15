@@ -1,4 +1,4 @@
-class FloweringTrees::CLI
+class CLI
     
    def run 
      list_trees
@@ -7,7 +7,7 @@ class FloweringTrees::CLI
    end
    
    def list_trees
-     trees_array = FloweringTrees::Scraper.scrape_page
+     trees_array = Scraper.scrape_page
      Trees.create_from_collection(trees_array)
    end
    
@@ -17,8 +17,8 @@ class FloweringTrees::CLI
      puts ""
      #FloweringTrees::Scraper.scrape 
      puts "To see the list of flowering trees, enter 'trees'"
-     puts "To view a specific tree, enter 'name'"
-     puts "To search trees by price, enter 'price'"
+     puts "To view a specific tree, enter 'search by name'"
+     puts "To search trees by price, enter 'search by price'"
      puts "To exit the program, type 'exit'"
    end
 
@@ -47,59 +47,22 @@ class FloweringTrees::CLI
     exit 
   end 
      
-    #  puts "#{object.name}"
-    #end
-  
-    
-    
-    
-   # DirtyBirds::Scraper.scrape 
-    #puts "Please enter your favorite players' uniform number!"
-    #puts
-    #players
-    #command
-  #end
-  
-  #def players 
-   # DirtyBirds::Player.all.each.with_index(1) do |object, index|
-    #puts "#{index}, #{object.name}"
-  #end
-#end
-
- # def command
-  #  puts
-   # puts "Please enter your favorite players' uniform number!"
-    #puts
-    #puts "Type exit to leave the program"
-    #input = ""
-    
-    #while input != "exit"
-     # input = gets.chomp 
-      
-      #if (1..).include?(input.to_i)
-       # @chosen_player = DirtyBirds::Player 
-        #  .all[input.to_i - 1]
-        #puts 
-        #puts "You entered player #{@chosen_player.name}"
-        #puts "His uniform number is #{@chosen_player.pl_num}"
-        #puts "His position is #{@chosen_player.pl_pos}"
-        #puts "For #{chosen_player.name}'s game statistics go to:"
-        #puts "#{chosen_player.url}"
-        #puts "Type 'r' to view the roster again"
-        #puts "Or type the uniform number of another player"
-        #puts "You can type 'exit' anytime to leave the program"
-        
-      #elsif input.downcase == "p"
-      #players
-      #command
-      #elsif input.downcase == "exit"
-      #puts "Next year's stats will be much better!"
-      #break
-    #else 
-     # puts "Sorry, please enter a specific number from the roster!"
-      #command
-    #end
-  #end
-   # puts "Hope to see you cheering at the next game!"
-    #exit
+  def list_trees_by_name
+    puts ""
+    puts "Please enter the name of your choice tree"
+    puts ""
+    input = nil 
+    while input != "exit"
+      input = gets.chomp 
+      Trees.all.each do |trees|
+        if tree.by_name != nil 
+          puts "#{tree.name}"
+          puts "#{tree.url}"
+          puts ""
+          puts "Price: #{tree.price}"
+          puts ""
+        end
+      end
+    end
+  end
     
