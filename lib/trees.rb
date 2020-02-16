@@ -2,7 +2,7 @@ require 'pry'
 
 class FloweringTrees::Trees 
   
-  attr_accessor :name, :url, :price 
+  attr_accessor :name, :price 
   
   @@all = []
   

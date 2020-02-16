@@ -2,4 +2,4 @@
 
 require_relative '../lib/environment'
 
-FloweringTrees::CLI.new.welcome
+FloweringTrees::CLI.new.run

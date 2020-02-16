@@ -2,7 +2,7 @@ class FloweringTrees::CLI
     
    def run 
      list_trees
-     greeting
+     welcome 
      user_command
    end
    

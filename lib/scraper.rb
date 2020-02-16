@@ -12,12 +12,15 @@ class FloweringTrees::Scraper
     list = page.css("div.child-link")
     trees = []
     #binding.pry 
-    fl_trees = list.map do |trees|
-    url => trees.css("a").attr("href").value,
+    list.map {|tree| tree.text} 
+      trees_hash = {
+    #url => trees.css("a").attr("href").value,
     name => trees.css("a").text,
     price => trees.css("p.strong").text
+      }
       
-    FloweringTrees::Trees.new(url, name, price)
+      trees << tree_hash
+    FloweringTrees::Trees.new(name, price)
     end
     
   end
