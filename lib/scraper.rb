@@ -12,11 +12,14 @@ class FloweringTrees::Scraper
 
     #url => trees.css("a").attr("href").value,
     
-    @page.css("div.child-link a").each_with_index do |trees, num|
-      
+    @page.css("div.child-link a").map do |tree|
+      tree.text
     end
-    binding.pry
-    #price = @page.css("p.strong")[1..23]
   end
- 
+  
+  def self.scrape_prices
+    @page.css("p.strong")[1..23].map do |price|
+      price.text
+    end
+  end
 end

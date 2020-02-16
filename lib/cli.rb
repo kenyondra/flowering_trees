@@ -1,15 +1,25 @@
 class FloweringTrees::CLI
     
-   def run 
-     list_trees
-     welcome 
+   def run
+     welcome
      user_command
    end
    
    def list_trees
-     @trees = FloweringTrees::Scraper.scrape_trees
+     @trees = FloweringTrees::Scraper
+     @trees.scrape_trees.each_with_index do |tree, num|
+       puts "#{num + 1}. #{tree}"
+     end
+     puts "Which tree would you like to learn about?"
+      @input = gets.strip.to_i-1
+     @current_tree = @trees.scrape_trees[@input]
+     @current_tree_price = @trees.scrape_prices[@input]
+      puts "The tree you chose was #{@current_tree}"
+      puts "The price of that tree is #{@current_tree_price}"
+      
+     #FloweringTrees::Scraper.new
+     FloweringTrees::Trees.new(@current_tree, @current_tree_price)
      binding.pry
-     FloweringTrees::Trees.new(@trees_array)
    end
    
    #def self.create_from_collection
@@ -33,7 +43,7 @@ class FloweringTrees::CLI
         puts ""
         puts "To see tree info, type trees"
         puts ""
-        display_trees
+        list_trees
         elsif input.downcase == "search by name"
           list_trees_by_name
         elsif input.downcase == "search by price"
