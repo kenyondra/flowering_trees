@@ -7,10 +7,13 @@ class FloweringTrees::CLI
    end
    
    def list_trees
-     trees_array = FloweringTrees::Scraper.scrape_page
-     Trees.create_from_collection(trees_array)
+     @trees_array = FloweringTrees::Scraper.scrape_page
+     binding.pry
+     FloweringTrees::Trees.new(@trees_array)
    end
    
+   #def self.create_from_collection
+     
    def welcome 
      puts ""
      puts "Welcome to Willis Orchards', the best place to make your yard look great!"

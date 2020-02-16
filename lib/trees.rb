@@ -6,12 +6,11 @@ class FloweringTrees::Trees
   
   @@all = []
   
-  def initialize(tree_hash)
-    tree_hash.each do |key, value|
-      self.send "#{key}=", value
-    end
-    
-    @@all << self 
+  def initialize(name, price)
+   @name = name
+   @price = price
+   
+   @@all << self
   end
   
   def self.create_from_collection(trees_array)
