@@ -6,29 +6,17 @@ class FloweringTrees::Scraper
   
   BASEURL = "https://www.willisorchards.com/category/flowering-trees"
   @page = Nokogiri::HTML(open(BASEURL))
-  @@hash = {}
   
   
-  def self.scrape_page 
-    
-    name = @page.css("div.child-link a").children.each  {|tree|}
-    
-    #binding.pry 
-    #list.map {|tree| tree.text} 
-      
+  def self.scrape_trees
+
     #url => trees.css("a").attr("href").value,
-    name = @page.css("div.child-link a")
-    price = @page.css("p.strong")[1..23]
-    name.each do |name|
-      price.each do |price|
-        @@hash[:name] = name.text
-        @@hash[:price] = price.text
-      end
-    end
-    @@hash
-    end 
-     
-    price = @page.css("p.strong")[1..23].text
-    FloweringTrees::Trees.new(name, price)
     
+    @page.css("div.child-link a").each_with_index do |trees, num|
+      
+    end
+    binding.pry
+    #price = @page.css("p.strong")[1..23]
+  end
+ 
 end

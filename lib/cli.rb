@@ -7,7 +7,7 @@ class FloweringTrees::CLI
    end
    
    def list_trees
-     @trees_array = FloweringTrees::Scraper.scrape_page
+     @trees = FloweringTrees::Scraper.scrape_trees
      binding.pry
      FloweringTrees::Trees.new(@trees_array)
    end
