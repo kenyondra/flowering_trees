@@ -13,17 +13,11 @@ class FloweringTrees::Scraper
     trees = []
     #binding.pry 
     fl_trees = list.map do |trees|
-      tree_hash = {
     url => trees.css("a").attr("href").value,
     name => trees.css("a").text,
     price => trees.css("p.strong").text
-      }
-      end
-      trees << tree_hash
       
-    full_url = BASEURL + url
-    
     FloweringTrees::Trees.new(url, name, price)
     end
-    #trees 
+    
   end
