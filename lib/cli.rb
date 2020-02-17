@@ -16,10 +16,12 @@ class FloweringTrees::CLI
      @current_tree_price = @trees.scrape_prices[@input]
       puts "The tree you chose was #{@current_tree}"
       puts "The price of that tree is #{@current_tree_price}"
+      puts @trees.url[@input]
+      binding.pry 
       
      #FloweringTrees::Scraper.new
      FloweringTrees::Trees.new(@current_tree, @current_tree_price)
-     binding.pry
+     #binding.pry
    end
    
    #def self.create_from_collection
@@ -69,12 +71,12 @@ class FloweringTrees::CLI
      
   def list_trees_by_name
     puts ""
-    puts "Please enter the name of your choice tree"
-    puts ""
-    input = nil 
+    puts "For more info about #{@current_tree} go to:" 
+    puts "#{@current_tree.url}"
+    input = ""
     while input != "exit"
       input = gets.chomp 
-      Trees.all.each do |trees|
+      FloweringTrees::Trees.all.each do |trees|
         if tree.by_name != nil 
           puts "#{tree.name}"
           puts "#{tree.url}"

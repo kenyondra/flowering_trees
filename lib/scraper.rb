@@ -22,4 +22,10 @@ class FloweringTrees::Scraper
       price.text
     end
   end
+  
+  def self.url 
+    @page.css("div.child-link a").map do |link|
+      link.attributes["href"].value 
+    end 
+  end 
 end
