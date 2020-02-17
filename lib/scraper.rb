@@ -10,9 +10,7 @@ class FloweringTrees::Scraper
   
   def self.scrape_trees
 
-    #url => trees.css("a").attr("href").value,
-    
-    @page.css("div.child-link a").map do |tree|
+   @page.css("div.child-link a").map do |tree|
       tree.text
     end
   end

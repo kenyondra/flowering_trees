@@ -9,31 +9,30 @@ class FloweringTrees::CLI
      @trees = FloweringTrees::Scraper
      @trees.scrape_trees.each_with_index do |tree, num|
        puts "#{num + 1}. #{tree}"
-     end
+       puts ""
+      end
      puts "Which tree would you like to learn about?"
       @input = gets.strip.to_i-1
      @current_tree = @trees.scrape_trees[@input]
      @current_tree_price = @trees.scrape_prices[@input]
       puts "The tree you chose was #{@current_tree}"
       puts "The price of that tree is #{@current_tree_price}"
+      puts "To get detailed info about #{@current_tree} go to:"
       puts @trees.url[@input]
-      binding.pry 
+      puts ""
+      puts "Enter 'trees' to view the list again"
+      puts "Or 'exit' to leave the program"
       
-     #FloweringTrees::Scraper.new
      FloweringTrees::Trees.new(@current_tree, @current_tree_price)
-     #binding.pry
-   end
+  end
    
-   #def self.create_from_collection
-     
-   def welcome 
+  def welcome 
      puts ""
      puts "Welcome to Willis Orchards', the best place to make your yard look great!"
      puts ""
      #FloweringTrees::Scraper.scrape 
-     puts "To see the list of flowering trees, enter 'trees'"
-     puts "To view a specific tree, enter 'search by name'"
-     puts "To search trees by price, enter 'search by price'"
+     puts "To view the list of flowering trees, enter 'trees'"
+     puts ""
      puts "To exit the program, type 'exit'"
    end
 
@@ -43,13 +42,9 @@ class FloweringTrees::CLI
       input = gets.chomp 
       if input.downcase == "trees"
         puts ""
-        puts "To see tree info, type trees"
+        puts "Below are the best category of flowering trees"
         puts ""
         list_trees
-        elsif input.downcase == "search by name"
-          list_trees_by_name
-        elsif input.downcase == "search by price"
-          list_trees_by_price
         elsif input.downcase == "exit"
           exit_app
         else 
@@ -69,28 +64,8 @@ class FloweringTrees::CLI
     puts ""
   end 
      
-  def list_trees_by_name
-    puts ""
-    puts "For more info about #{@current_tree} go to:" 
-    puts "#{@current_tree.url}"
-    input = ""
-    while input != "exit"
-      input = gets.chomp 
-      FloweringTrees::Trees.all.each do |trees|
-        if tree.by_name != nil 
-          puts "#{tree.name}"
-          puts "#{tree.url}"
-          puts ""
-          puts "Price: #{tree.price}"
-          puts ""
-        end
-      end
-    end
-  end
-  
   def enter_correct_input
     puts ""
     puts "Enter correct input"
     puts ""
   end
-  

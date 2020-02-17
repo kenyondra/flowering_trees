@@ -12,13 +12,7 @@ class FloweringTrees::Trees
    
    @@all << self
   end
-  
-  # def self.create_from_collection(trees_array)
-  #   trees_array.each do |tree|
-  #     self.new(tree)
-  #   end
-  # end 
-  
+ 
   def self.all 
     @@all 
   end
