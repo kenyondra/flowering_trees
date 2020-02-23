@@ -17,7 +17,7 @@ class FloweringTrees::CLI
      @current_tree_price = @trees.scrape_prices[@input]
       puts "The tree you chose was #{@current_tree}"
       puts "The price of that tree is #{@current_tree_price}"
-      puts "To get detailed info about #{@current_tree} go to:"
+      puts "To get detailed info about #{@current_tree}, please copy and paste the link in your browser navigation bar:"
       puts @trees.url[@input]
       puts ""
       puts "Enter 'trees' to view the list again"
