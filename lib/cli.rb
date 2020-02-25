@@ -30,7 +30,6 @@ class FloweringTrees::CLI
      puts ""
      puts "Welcome to Willis Orchards', the best place to make your yard look great!"
      puts ""
-     #FloweringTrees::Scraper.scrape 
      puts "To view the list of flowering trees, enter 'trees'"
      puts ""
      puts "To exit the program, type 'exit'"
@@ -59,11 +58,6 @@ class FloweringTrees::CLI
     exit 
   end 
   
-  def display_trees
-    Trees.all.each {|tree| puts "#{tree.name}"}
-    puts ""
-  end 
-     
   def enter_correct_input
     puts ""
     puts "Enter correct input"
