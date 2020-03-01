@@ -13,6 +13,7 @@ class FloweringTrees::CLI
       end
      puts "Which tree would you like to learn about?"
       @input = gets.strip.to_i-1
+      if @input == 1...18
      @current_tree = @trees.scrape_trees[@input]
      @current_tree_price = @trees.scrape_prices[@input]
       puts "The tree you chose was #{@current_tree}"
@@ -24,6 +25,9 @@ class FloweringTrees::CLI
       puts "Or 'exit' to leave the program"
       
      FloweringTrees::Trees.new(@current_tree, @current_tree_price)
+      else
+        enter_correct_input
+      end 
   end
    
   def welcome 
