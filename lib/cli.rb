@@ -3,32 +3,35 @@ class FloweringTrees::CLI
    def run
      welcome
      user_command
+     selected_tree
    end
    
-   def list_trees
-     @trees = FloweringTrees::Scraper
-     @trees.scrape_trees.each_with_index do |tree, num|
-       puts "#{num + 1}. #{tree}"
-       puts ""
-      end
-     puts "Which tree would you like to learn about?"
-      @input = gets.strip.to_i-1
-      if @input == 1...18
-     @current_tree = @trees.scrape_trees[@input]
-     @current_tree_price = @trees.scrape_prices[@input]
-      puts "The tree you chose was #{@current_tree}"
-      puts "The price of that tree is #{@current_tree_price}"
-      puts "To get detailed info about #{@current_tree}, please copy and paste the link in your browser navigation bar:"
-      puts @trees.url[@input]
-      puts ""
-      puts "Enter 'trees' to view the list again"
-      puts "Or 'exit' to leave the program"
+   #def list_trees
+     #@trees = FloweringTrees::Scraper
+     #@trees.scrape_trees.each_with_index do |tree, num|
+       #puts "#{num + 1}. #{tree}"
+       #puts ""
+      #end
+     #puts "Which tree would you like to learn about?"
+      #@input = gets.strip.to_i-1
+      #if @input == 1...18
+     #@current_tree = @trees.scrape_trees[@input]
+     #@current_tree_price = @trees.scrape_prices[@input]
+      #puts "The tree you chose was #{@current_tree}"
+      #puts "The price of that tree is #{@current_tree_price}"
+      #puts "To get detailed info about #{@current_tree}, please copy and paste the link in your browser navigation bar:"
+      #puts @trees.url[@input]
+      #puts ""
+      #puts "Enter 'trees' to view the list again"
+      #puts "Or 'exit' to leave the program"
       
-     FloweringTrees::Trees.new(@current_tree, @current_tree_price)
-      else
-        enter_correct_input
-      end 
-  end
+     #FloweringTrees::Trees.new(@current_tree, @current_tree_price)
+      #elsif @input == "trees"
+       # user_command
+      #else
+      #  enter_correct_input
+     # end
+    #end
    
   def welcome 
      puts ""
@@ -50,6 +53,8 @@ class FloweringTrees::CLI
         list_trees
         elsif input.downcase == "exit"
           exit_app
+        #elsif @input == "trees"
+         # list_trees
         else 
           enter_correct_input 
         end
@@ -65,5 +70,7 @@ class FloweringTrees::CLI
   def enter_correct_input
     puts ""
     puts "Enter correct input"
+    puts ""
+    puts "To view the list of flowering trees, enter 'trees'"
     puts ""
   end
